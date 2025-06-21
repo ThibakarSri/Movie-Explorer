@@ -4,7 +4,7 @@ import { Card } from "../components";
 import { useFetch } from "../hooks/useFetch";
 
 export const MovieList = ({ title , apiPath}) => {
-   const {data : movies} = useFetch(apiPath);
+  const {data : movies} = useFetch(apiPath);
   useEffect(() => {
     document.title = title;
   });
