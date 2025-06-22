@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import backup from "../assets/backup.jpg";
+import { convertMinutes } from "../utils/utils";
 
 export const MovieDetails = () => { 
   const params = useParams();
@@ -50,6 +51,31 @@ export const MovieDetails = () => {
           <i className="bi bi-star-fill text-warning"></i> {movie.vote_average} |
           <i className="bi bi-peple-fill text-success"></i> {movie.vote_count} reviews
         </p>
+
+        <table className="table tbale-bordered w-50 mt-2">
+          <tbody>
+            <tr>
+              <th>Runtime</th>
+              <td>{convertMinutes(movie.runtime)}</td>
+            </tr>
+            <tr>
+              <th>Budget</th>
+              <td>{movie.budget}</td>
+            </tr>
+            <tr>
+              <th>Revenue</th>
+              <td>{movie.revenue}</td>
+            </tr>
+            <tr>
+              <th>Release Date</th>
+              <td>{movie.release_date}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <a className="btn btn-warning" href={`https://www.imdb.com/title/${movie.imdb_id}/`}>
+          View in IMDB
+        </a>
       </div>
     </div>
   </main>
